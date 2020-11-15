@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "747756501343",
+    "firebase_url": "https://shopfun-eff0d.firebaseio.com",
+    "project_id": "shopfun-eff0d",
+    "storage_bucket": "shopfun-eff0d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:747756501343:android:b538e629e8f54702bddeea",
+        "android_client_info": {
+          "package_name": "com.youcef.shopperfun"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "747756501343-c7d2ccatgc8j8o31jce33u5gjvd26bks.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDrV4jdTjNLHr612qoI2L3gREvhc9NOthU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "747756501343-c7d2ccatgc8j8o31jce33u5gjvd26bks.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
