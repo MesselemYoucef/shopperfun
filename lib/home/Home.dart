@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shopperfun/services/database_services.dart';
 
 
 class Intro extends StatefulWidget {
@@ -9,6 +10,7 @@ class Intro extends StatefulWidget {
 class _IntroState extends State<Intro> {
   @override
   Widget build(BuildContext context) {
+    DatabaseServices().updateCateory("Category 2");
     return Scaffold(
       appBar: AppBar(
         title: Text("Shopper Fun"),
