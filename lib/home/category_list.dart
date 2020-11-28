@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:provider/provider.dart';
 import 'package:shopperfun/models/category_model.dart';
+import 'package:shopperfun/models/product_model.dart';
 
 class CategoryList extends StatefulWidget {
   @override
@@ -11,10 +11,15 @@ class CategoryList extends StatefulWidget {
 class _CategoryListState extends State<CategoryList> {
   @override
   Widget build(BuildContext context) {
-    final category = Provider.of<List<CategoryModel>>(context) ?? [];
-    category.forEach((element) { 
-      print("++++++++++++");
-      print(element.name);
+    final categories = Provider.of<List<CategoryModel>>(context) ?? [];
+    categories.forEach((category) { 
+      print(category.name);
+     });
+
+     final products = Provider.of<List<ProductModel>>(context);
+     products.forEach((product) {
+       print(product.name);
+       print(product.parentCategoryId);
      });
     return Container(
       

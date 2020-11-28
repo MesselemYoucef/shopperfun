@@ -3,9 +3,9 @@
 
 class ProductModel{
   final String name;
-  String image;
-  String brand;
-  final String parentCategory;
+  final String image;
+  final String brand;
+  final String parentCategoryId;
 
-  ProductModel({this.name, this.parentCategory});
+  ProductModel({this.name, this.parentCategoryId, this.image, this.brand});
 }
