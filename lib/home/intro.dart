@@ -1,12 +1,8 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:shopperfun/models/category_model.dart';
 import 'package:provider/provider.dart';
 import 'package:shopperfun/home/category_list.dart';
-import 'package:provider/provider.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:shopperfun/models/product_model.dart';
-import 'package:shopperfun/home/product_list.dart';
 import 'package:shopperfun/services/database_services.dart';
 
 class Intro extends StatefulWidget {
