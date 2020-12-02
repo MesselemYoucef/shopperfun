@@ -15,7 +15,8 @@ class CategoryServices {
   List<CategoryModel> _categoryFromSnapshot(QuerySnapshot snapshot){
     return snapshot.docs.map((doc){
       return CategoryModel(
-        name: doc.data()["name"] ?? ''
+        name: doc.data()["name"] ?? '',
+        id: doc.reference.id
       );
     }).toList();
   }

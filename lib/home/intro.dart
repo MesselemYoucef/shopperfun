@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:shopperfun/models/category_model.dart';
 import 'package:provider/provider.dart';
-import 'package:shopperfun/home/category_list.dart';
 import 'package:shopperfun/models/product_model.dart';
 import 'package:shopperfun/services/database_services.dart';
+import 'package:shopperfun/services/database_services.dart';
+import 'category_grid.dart';
 
 class Intro extends StatefulWidget {
   @override
@@ -13,7 +14,7 @@ class Intro extends StatefulWidget {
 class _IntroState extends State<Intro> {
   @override
   Widget build(BuildContext context) {
-    //DatabaseServices().updateCateory("Category 2");
+    //CategoryServices().updateCateory("Category 9");
     //ProductService().updateProduct("Laminating Machine", "8f20upXldYOzdJ2APNov", "image", "brand");
     
     // return StreamProvider<List<CategoryModel>>.value(
@@ -38,16 +39,24 @@ class _IntroState extends State<Intro> {
     //   ),
     // );
 
-    return MultiProvider(
-      providers: [
-        StreamProvider<List<CategoryModel>>.value(
-          value: CategoryServices().categories,
-        ),
-        StreamProvider<List<ProductModel>>.value(
-          value: ProductServices().products,
-        )
-      ],
-      child: CategoryList(),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("CATEGORIES"),
+        centerTitle: true,
+        elevation: 0.0,
+        backgroundColor: Color.fromRGBO(135, 90, 123, 1),
+      ),
+          body: MultiProvider(
+        providers: [
+          StreamProvider<List<CategoryModel>>.value(
+            value: CategoryServices().categories,
+          ),
+          StreamProvider<List<ProductModel>>.value(
+            value: ProductServices().products,
+          )
+        ],
+        child: CategoryGrid(),
+      ),
     );
   }
 }
