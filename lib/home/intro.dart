@@ -5,6 +5,7 @@ import 'package:shopperfun/models/product_model.dart';
 import 'package:shopperfun/services/database_services.dart';
 import 'package:shopperfun/services/database_services.dart';
 import 'category_grid.dart';
+import 'product_list.dart';
 
 class Intro extends StatefulWidget {
   @override
@@ -55,7 +56,8 @@ class _IntroState extends State<Intro> {
             value: ProductServices().products,
           )
         ],
-        child: CategoryGrid(),
+        //child: CategoryGrid(),
+        child: ProductList(),
       ),
     );
   }

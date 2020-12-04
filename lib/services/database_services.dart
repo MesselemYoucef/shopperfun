@@ -56,6 +56,7 @@ class ProductServices{
 
   Stream <List<ProductModel>> get products{
     return productCollection.snapshots().map(_productFromSnapshot);
+    //return productCollection.where("categoryId", isEqualTo: "8cax0yRi2ooyoZsFduoW").snapshots().map(_productFromSnapshot);
   }
 
 
