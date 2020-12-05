@@ -11,6 +11,7 @@ class CategoryTile extends StatelessWidget {
     return InkWell(
           onTap: (){
             print("${category.id}");
+            Navigator.pushNamed(context, "/products");
           },
           child: Container(
           padding: EdgeInsets.all(8),

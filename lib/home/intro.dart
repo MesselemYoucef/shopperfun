@@ -57,7 +57,7 @@ class _IntroState extends State<Intro> {
           )
         ],
         //child: CategoryGrid(),
-        child: ProductList(),
+        child: CategoryGrid(),
       ),
     );
   }

@@ -12,7 +12,7 @@ class ProductList extends StatefulWidget {
 class _ProductListState extends State<ProductList> {
   @override
   Widget build(BuildContext context) {
-    final products = Provider.of<List<ProductModel>>(context);
+    final products = Provider.of<List<ProductModel>>(context) ?? [];
     return Container(
       child: ListView.builder(
         itemCount: products.length,

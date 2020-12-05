@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shopperfun/home/intro.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:shopperfun/home/selected_products.dart';
 
 
 void main() async {
@@ -15,7 +16,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     
     return MaterialApp(
-      home: Intro(),
+      
+      routes: {
+        "/": (context) => Intro(),
+        "/products": (context) => SelectedProducts()
+      },
     );
   }
 }
