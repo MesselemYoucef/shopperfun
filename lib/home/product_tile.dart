@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:shopperfun/models/product_model.dart';
 
 class ProductTile extends StatelessWidget {
-
   final ProductModel product;
   ProductTile({this.product});
-  
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -14,8 +13,11 @@ class ProductTile extends StatelessWidget {
         margin: EdgeInsets.fromLTRB(20.0, 6.0, 20.0, 0.0),
         child: ListTile(
           dense: false,
-          onTap: (){},
-          title: Text("Product Name is: ${product.name}"),
+          onTap: () {
+            Navigator.pushNamed(context, "/product_profile",
+                arguments: {"uid": product.uid});
+          },
+          title: Text("${product.name}"),
         ),
       ),
     );
