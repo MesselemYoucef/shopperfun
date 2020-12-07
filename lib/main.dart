@@ -3,6 +3,7 @@ import 'package:shopperfun/home/intro.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:shopperfun/home/product_profile.dart';
 import 'package:shopperfun/home/selected_products.dart';
+import 'home/contact_us.dart';
 import 'home/product_details.dart';
 
 void main() async {
@@ -16,10 +17,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      initialRoute: "/contact_us",
       routes: {
         "/": (context) => Intro(),
         "/products": (context) => SelectedProducts(),
         "/product_profile": (context) => ProductProfile(),
+        "/contact_us": (context) => ContactUs()
       },
     );
   }
