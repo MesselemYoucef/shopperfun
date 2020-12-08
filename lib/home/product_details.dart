@@ -11,9 +11,20 @@ class _ProductDetailsState extends State<ProductDetails> {
   @override
   Widget build(BuildContext context) {
     final product = Provider.of<ProductModel>(context);
-    return Center(
-        child: Container(
-      child: Text(product.name),
-    ));
+    return Container(
+      child: Padding(
+        padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
+        child: Column(
+          children:<Widget>[
+            SizedBox(height: 20),
+            Text(product.name),
+            SizedBox(height: 20),
+            Text(product.brand),
+            SizedBox(height: 10.0),
+            Text(product.parentCategoryId)
+          ]
+        ),
+      ),
+    );
   }
 }
