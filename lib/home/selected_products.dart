@@ -4,6 +4,8 @@ import 'product_list.dart';
 import 'package:shopperfun/services/database_services.dart';
 import 'package:shopperfun/models/product_model.dart';
 
+
+//ignore: must_be_immutable
 class SelectedProducts extends StatelessWidget {
   Map data = {};
   @override
