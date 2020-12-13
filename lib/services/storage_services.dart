@@ -5,13 +5,10 @@ class StorageServices {
 
   StorageServices({this.imageName});
 
-  final FirebaseStorage fs = FirebaseStorage.instance;
+  final ref = FirebaseStorage.instance.ref().child("products").child("real-mobile-2x-1400x770");
 
-  Future getImage() async {
-    Reference _rootReference = fs.ref().child("");
-    Reference pictureFolderRef =
-        _rootReference.child("pictures").child("imageName");
-    String imageURL = await pictureFolderRef.getDownloadURL();
-    return imageURL;
+  void imageURL()async{
+    var url = await ref.getDownloadURL();
+    print("The downloaded URL is:========== $url");
   }
 }

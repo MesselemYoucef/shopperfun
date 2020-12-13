@@ -10,11 +10,21 @@ class ProductDetails extends StatefulWidget {
 }
 
 class _ProductDetailsState extends State<ProductDetails> {
-  String imageLink;
+  dynamic imageLink;
 
   @override
   Widget build(BuildContext context) {
     final product = Provider.of<ProductModel>(context);
+    final ref = FirebaseStorage.instance.ref().child("products").child("real-mobile-2x-1400x770");
+    Future <String>urlName()async{
+      
+      return await ref.getDownloadURL();
+      };
+
+    setState(() {
+      imageLink = urlName();
+      print("the url is:================ $imageLink");
+    });
     return Container(
       child: Padding(
         padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
