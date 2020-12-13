@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: "/contact_us",
+      initialRoute: "/",
       routes: {
         "/": (context) => Intro(),
         "/products": (context) => SelectedProducts(),

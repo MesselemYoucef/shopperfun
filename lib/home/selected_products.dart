@@ -7,9 +7,10 @@ import 'package:shopperfun/models/product_model.dart';
 
 //ignore: must_be_immutable
 class SelectedProducts extends StatelessWidget {
-  Map data = {};
+  
   @override
   Widget build(BuildContext context) {
+    Map data = {};
     data = ModalRoute.of(context).settings.arguments;
     return StreamProvider<List<ProductModel>>.value(
       value: ProductServices(categoryID: data["categoryID"]).products,
