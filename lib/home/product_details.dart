@@ -15,8 +15,8 @@ class _ProductDetailsState extends State<ProductDetails> {
   @override
   Widget build(BuildContext context) {
     final product = Provider.of<ProductModel>(context);
-    final ref = FirebaseStorage.instance.ref().child("products").child("real-mobile-2x-1400x770");
 
+    //Function of type future to construct a widget for the picture downloaded from the database
     Future<Widget> _getImage(BuildContext context, String imageName) async{
       Image image;
       await FireStorageService.loadImage(context, imageName).then((value) {
@@ -34,14 +34,27 @@ class _ProductDetailsState extends State<ProductDetails> {
             height: 100,
             width: 100,
             child:FutureBuilder(
-              future: _getImage(context, "avatar.png"),
+              future: _getImage(context, product.image),
               builder: (context, snapshot){
                 if(snapshot.connectionState == ConnectionState.done){
-                  return Container(
-                    width: MediaQuery.of(context).size.width / 1.2,
-                    height: MediaQuery.of(context).size.height / 1.2,
-                    child: snapshot.data,
-                  );
+                  if(snapshot.data != null){
+                    return Container(
+                      width: MediaQuery.of(context).size.width / 1.2,
+                      height: MediaQuery.of(context).size.height / 1.2,
+                      child: snapshot.data,
+                    );
+                  }else{
+                    return Container(
+                      width: MediaQuery.of(context).size.width / 1.2,
+                      height: MediaQuery.of(context).size.height / 1.2,
+                      child: ClipOval(
+                        child: Icon(
+                          Icons.bolt
+                        ),
+                      )                      
+                    );
+                  }
+                  
                 }
                 if(snapshot.connectionState == ConnectionState.waiting){
                   return Container(
@@ -49,9 +62,8 @@ class _ProductDetailsState extends State<ProductDetails> {
                     height: MediaQuery.of(context).size.height / 1.2,
                     child: CircularProgressIndicator(),
                   );
-
-                  return Container();
                 }
+                return Container();
               }
             ),
           ),
@@ -69,10 +81,3 @@ class _ProductDetailsState extends State<ProductDetails> {
 }
 
 
-class FireStorageService extends ChangeNotifier{
-  FireStorageService();
-
-  static Future<dynamic> loadImage(BuildContext context, String image)async{
-    return FirebaseStorage.instance.ref().child("products").child(image).getDownloadURL();
-  }
-}
