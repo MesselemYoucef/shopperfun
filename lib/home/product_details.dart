@@ -37,24 +37,13 @@ class _ProductDetailsState extends State<ProductDetails> {
               future: _getImage(context, product.image),
               builder: (context, snapshot){
                 if(snapshot.connectionState == ConnectionState.done){
-                  if(snapshot.data != null){
+          
                     return Container(
                       width: MediaQuery.of(context).size.width / 1.2,
                       height: MediaQuery.of(context).size.height / 1.2,
                       child: snapshot.data,
                     );
-                  }else{
-                    return Container(
-                      width: MediaQuery.of(context).size.width / 1.2,
-                      height: MediaQuery.of(context).size.height / 1.2,
-                      child: ClipOval(
-                        child: Icon(
-                          Icons.bolt
-                        ),
-                      )                      
-                    );
-                  }
-                  
+                      
                 }
                 if(snapshot.connectionState == ConnectionState.waiting){
                   return Container(
