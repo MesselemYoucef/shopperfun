@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shopperfun/models/product_model.dart';
 import 'package:shopperfun/services/storage_services.dart';
-import 'package:firebase_storage/firebase_storage.dart';
+
 
 class ProductDetails extends StatefulWidget {
   @override
@@ -12,18 +12,22 @@ class ProductDetails extends StatefulWidget {
 class _ProductDetailsState extends State<ProductDetails> {
   dynamic imageLink ;
 
+  //Function of type future to construct a widget for the picture downloaded from the database
+  Future<Widget> _getImage(BuildContext context, String imageName) async{
+
+    Image image;
+    await FireStorageService.loadImage(context, imageName).then((value) {
+      image = Image.network(value.toString(), fit: BoxFit.scaleDown);
+    });
+    return image;
+  }
+
   @override
   Widget build(BuildContext context) {
-    final product = Provider.of<ProductModel>(context);
+    final product = Provider.of<ProductModel>(context) ;
 
-    //Function of type future to construct a widget for the picture downloaded from the database
-    Future<Widget> _getImage(BuildContext context, String imageName) async{
-      Image image;
-      await FireStorageService.loadImage(context, imageName).then((value) {
-        image = Image.network(value.toString(), fit: BoxFit.scaleDown);
-      });
-      return image;
-    }
+    
+
 
     return Container(
       child: Padding(
@@ -37,13 +41,11 @@ class _ProductDetailsState extends State<ProductDetails> {
               future: _getImage(context, product.image),
               builder: (context, snapshot){
                 if(snapshot.connectionState == ConnectionState.done){
-          
                     return Container(
                       width: MediaQuery.of(context).size.width / 1.2,
                       height: MediaQuery.of(context).size.height / 1.2,
                       child: snapshot.data,
-                    );
-                      
+                    );    
                 }
                 if(snapshot.connectionState == ConnectionState.waiting){
                   return Container(
